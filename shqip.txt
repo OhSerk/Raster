@@ -1,0 +1,83 @@
+//Jurry
+Lojtari 1
+Lojtari 2
+Lojtari 3
+Lojtari 4
+BOT 2
+BOT 3
+BOT 4
+Barazim
+Sa lojtar?
+Persona
+CPU
+Veshtiresia:
+Shume e thjeshte
+E thjeshte
+Pak e thjeshte
+Jezus
+Luaj!
+//Controlli
+Fituesi eshte:
+Kthehu ne menù
+//Scritte
+Luaj
+Opsionet
+Historiku
+Si luhet
+Kredite
+* = Se shpejti
+Mbrapa
+Muzika
+Efektet
+Gjuha:
+//Opzioni
+Zgjidh sfondin
+Koha e pritjes:
+//HowToPlay
+Loja përmban një rrjet me shumë katrorë.
+Çdo katror është i barabartë me një pikë.
+Kuadrati poshtë,në të majtë vlen me 150 pikë(+).
+Loja mbaron kur është përdorur i gjithë rrjeti.
+Kushdo që ka marrë(ngjyrosur) më pak katrorë FITON.
+Një lojë mund të ketë deri në 4 lojtarë.
+Lojtarëve u përcaktohet një ngjyrë e ndryshme.
+Sipër rrjetit tregohet se cilët lojtarë duhet të fillojnë lojën.
+Këtu tregohet një shëmbull i një loje Raster.
+Zona e verdhë tregon pozicionimi i lojtarit.
+Ngjyrosen të gjithë kuadratet e bardhë që ndodhen së larti dhe djathtas nga pika ku prekni me pulsant.
+Në këtë mënyrë, çdo lojtar është i lirë për të bërë lëvizje që ata preferojnë, pa kufizime.
+Nëse një lojtar në një lojë merr shumë kuadrate(sheshe), ai skualifikohet. 
+Kjo pjesë e rrjetit ngjyroset me ngjyrë gri dhe ai ndalon se luajturi. 
+Nëse luajnë vetëm 2 lojtarë atëherë mbyllet loja.
+Kuadraët me ngjyrë lejla tregojnë të gjitha lëvizjet e mundshme. 
+Ngjyrosen të gjithë kuadratet e bardhë që ndodhen së larti dhe djathtas nga pika ku prekni me pulsant.
+Në këtë mënyre çdo lojtarë është i detyruar të zgjedhë një nga kuadratet lejla që gjenden të disponueshme.
+Të prekni gjetku do të jetë e kotë pasi nuk do të ndodhë asgjë, do të gjenden deri në 2 kuadratë lejla.
+Kështu, duke u ngjyrosur një përqindje e rrjetit, do të gjendeni të kufizuar pa asnjë mundësi levizjeje.
+Modalitet
+I pakufishëm
+Zgjedhje të detyruar
+Menu
+lojë
+
+
+
+
+
+
+
+
+
+Je i sigurte qe do te dalesh nga loja?
+Po
+Jo
+Fshi gjithçka
+Ruaj ekranin 
+Ruaj ne telefon 
+BHO
+Bonus
+During the game you can find within the squares bonus.
+Colored box where you find these bonuses, you can then use the next round.
+It allows you to exchange your points with those of another player, simply
+touching a player square in question.
+P.S. If you touch one of your box, the bonus will be forfeited.
