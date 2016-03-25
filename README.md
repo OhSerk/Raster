@@ -1,5 +1,5 @@
 # Raster
-This is my first application published on "JarsickGames" currently available only on GooglePlay.
+This is my first application published on "JarsickGames".
 
 # Hacking
 Completely made with Processing 3.
