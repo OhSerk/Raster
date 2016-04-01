@@ -1,0 +1,12 @@
+﻿[x]BackPressed
+[x]IA
+[x]Loghi
+[future]Multiplayer
+[x]Storico
+[bho]Blocca schermo
+[x]Dimensioni testo
+[x]HowToPlay
+[x]Il tasto play
+[x]Le opzioni di gioco
+[x]Impostare modalità
+[x]Musica

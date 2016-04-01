@@ -1,0 +1,61 @@
+// Juary
+Spieler 1
+Spieler 2
+Spieler 3
+Spieler 4
+BOT 2
+BOT 3
+BOT 4
+Zeichnen
+Wie viele Spieler?
+Menschen
+CPU
+Schwierigkeit:
+Sehr einfach
+Einfach
+Nicht so einfach
+Jesu
+Spielen!
+// Steuerelemente
+Es gewinnt:
+Zurück zum Menü
+// Geschrieben
+Spielen
+Optionen
+Ort
+Wie zu spielen
+Credits
+* = Kommt
+Rücken
+Musik
+Effekten
+Sprache:
+// Optionen
+Wählen Sie die Hinter
+Wartezeit:
+//HowToPlay
+Das Spiel verfügt über ein Netz von vielen Plätzen.
+Jedes Quadrat entspricht einem Punkt.
+Der Platz in der linken unteren Wert von 150 sichern.
+Das Spiel endet, wenn Sie alle Felder zu nehmen.
+Wer weniger quadratisch gefunden hat.
+In einem Spiel kann es bis zu 4 Spieler.
+Die Spieler werden von einer Farbe unterschieden.
+Unter dem Gitter zeigt an, welcher Spieler spielen sollten.
+Es ist ein Beispiel dafür, wie Raster.
+Das gelbe Quadrat zeigt die Position des Fingers des Spielers
+Sie sind weiß gefärbt Quadrate, die an der Oberseite und auf der rechten Seite von der aus Sie zu berühren sind.
+In diesem Modus wird jeder Spieler ist frei, um die Bewegung sie bevorzugen, ohne Einschränkungen zu machen.
+Wenn ein Spieler in einem Spiel führt zu viele Plätze, wird disqualifiziert.
+Das ist der Teil des Gitters ist grau gefärbt und er hört auf zu spielen.
+Wenn es nur 2 Spieler das Spiel endet direkt.
+Die lila Quadrate zeigen die möglichen Züge
+Sie sind weiß gefärbt Quadrate, die an der Oberseite und auf der rechten Seite von der aus Sie zu berühren sind.
+In diesem Modus wird jeder Spieler gezwungen, eine Bewegung unter den zur Verfügung zu wählen
+Note in jeder anderen Position wäre nutzlos, die zur Verfügung stehenden Züge sind immer mindestens 2.
+Farbigen, einen bestimmten Prozentsatz des Gitters, wird es keine Beschränkungen unterliegen.
+Modalität
+Grenzenlose
+Zwangs Wahl
+Menu
+Partie

@@ -1,0 +1,61 @@
+//Jurry
+Jugator 1
+Jugator 2
+Jugator 3
+Jugator 4
+BOT 2
+BOT 3
+BOT 4
+Igualar
+Quantos jugadores?
+Humano
+CPU
+Dificultad
+Muy facil
+Facil
+No es asi facil
+Jesus
+Juega!
+//Controlli
+El vencedor es:
+Vuelve al menù
+//Scritte
+Juega
+Opciones
+Historico
+Come se juega
+Créditos
+* = En arrivo
+Atràs
+Musica
+Effectos
+Lengua:
+//Opzioni
+Eliges el sfondo
+Tiempo de espera:
+//HowToPlay
+El juego cuenta con una red de muchas plazas.
+Cada cuadrado es igual a un punto.
+El cuadrado en la parte inferior izquierda vale 150 extra.
+El juego termina cuando usted toma todas las plazas.
+El que ha tomado menos cuadrado.
+En un partido no puede haber hasta 4 jugadores.
+Los jugadores se distinguen por un color.
+Por debajo de la rejilla indica qué jugador debe jugar.
+Es un ejemplo de cómo Raster.
+El cuadro amarillo indica la posición del dedo del jugador
+Ellos son de color cuadrados blancos que están en la parte superior ya la derecha de donde se toca.
+En este modo, cada jugador es libre de hacer el movimiento que prefieran, sin restricciones.
+Si un jugador en un juego tiene demasiados cuadrados, está descalificado.
+Esa es la parte de la red es de color gris y deja de jugar.
+Si hay sólo 2 jugadores el juego termina directamente.
+Los cuadrados púrpuras indican los posibles movimientos
+Ellos son de color cuadrados blancos que están en la parte superior ya la derecha de donde se toca.
+En este modo, cada jugador se ve obligado a elegir un movimiento entre los disponibles
+toque en cualquier otra posición sería inútil, los movimientos disponibles son siempre mínimo 2.
+De color de un determinado porcentaje de la rejilla, no habrá más restricciones.
+Modalidad
+Sin límites
+Elección forzada
+Menú
+Juego

@@ -1,0 +1,98 @@
+//Jurry
+Player 1
+Player 2
+Player 3
+Player 4
+BOT 2
+BOT 3
+BOT 4
+Draw
+How many players?
+Human
+CPU
+Difficulty:
+Very easy
+Easy
+Not too easy
+Hard
+Play!
+//Controlli
+The winner is:
+Back to menu
+//Scritte
+Play
+Options
+History 
+How to play
+Credits
+* = Coming soon
+Back
+Music
+Effects
+Language:
+//Options
+Select background
+Waiting time:
+//HowToPlay
+The game features a grid with many squares.
+Each square equals one point.
+The square in the lower left is worth 150 extra points.
+The game ends when you have selected all the squares.
+Whoever has selected LESS squares wins.
+In one game there can be up to 4 players.
+The players are identified by color.
+Below the grid you can see who is going to play next.
+Here is an example of how Raster works.
+The yellow square indicates the position of the pointer of the player.
+The white squares to the top and to the right from where you touch gets colored.
+In this modality, each player is free to make the preferred move, with no restrictions.
+If a player during a game takes too many squares, they are disqualified.
+Their selected squares turn grey and are forced to stop playing.
+If there are only 2 players the game ends automatically.
+Purple squares indicate possible moves
+The white squares to the top and to the right from where you touch gets colored.
+In this modality, each player is forced to choose a move among those available
+touching any other position would be useless, the available moves are always minimum 2.
+After a certain percentage of the grid gets colored, there will be no more restrictions.
+Modality
+Limitless
+Forced choice
+Menu
+Game
+Use Perk!
+
+
+
+
+
+
+
+
+Are you sure to quit?
+Yes
+No
+Delete All
+Save screen
+Save to phone
+Tap to view more
+Bonus
+During the game you can find within the squares bonus.
+Colored box where you find these bonuses, you can then use the next round.
+It allows you to exchange your points with those of another player, simply
+touching a player square in question.
+P.S. If you touch one of your box, the bonus will be forfeited.
+Tutorial: Hit the yellow square!
+Do not cheat!
+Tutorial: Now it's your opponent's turn!
+Tutorial: Your opponent will hit here!
+Remember: The winner is whoever has less square at the end of the game!
+Tutorial: Take many squares can be risky, but it is a good strategy!
+Tutorial: They will appear bonuses at certain times of the game!
+Tutorial: Fill the squares where there is this bonus to use it!
+Tutorial: Now you hit a box of your opponent!
+Tutorial: One last move!
+Remember: The last square is worth 150 extra points!
+This was an example of a game Raster!
+Tap here to continue
+Hit the yellow square to continue!
+Help in game

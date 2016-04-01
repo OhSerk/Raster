@@ -1,0 +1,98 @@
+﻿//Jurry
+Giocatore 1
+Giocatore 2
+Giocatore 3
+Giocatore 4
+BOT 2
+BOT 3
+BOT 4
+Pareggio
+Quanti giocatori?
+Umani
+CPU
+Difficoltà:
+Molto facile
+Facile
+Non così facile
+Difficile
+Gioca!
+//Controlli
+Il vincitore è:
+Torna al menù
+//Scritte
+Gioca
+Opzioni
+Storico
+Come si gioca
+Crediti
+* = In arrivo
+Indietro
+Musica
+Effetti
+Lingua:
+//Opzioni
+Scegli lo sfondo
+Tempo di attesa:
+//HowToPlay
+Il gioco presenta una griglia composta da tanti quadrati.
+Ogni quadrato equivale a un punto.
+Il quadrato in basso a sinistra ne vale 150 aggiuntivi.
+Il gioco termina quando si prendono tutti i quadrati.
+Vince chi ha preso MENO quadrati.
+In una sola partita ci possono essere fino a 4 giocatori.
+I giocatori vengono distinti da un colore.
+Sotto alla griglia si indica quale giocatore deve giocare.
+Viene mostrato un esempio di come funziona Raster.
+Il quadrato giallo indica la posizione del dito del giocatore
+vengono colorati i quadrati bianchi che si trovano in alto e a destra del punto toccato.
+In questa modalità ogni giocatore è libero di fare la mossa che preferisce, senza vincoli.
+Se un giocatore in una partita prende troppi quadrati, viene squalificato.
+Ovvero, la sua parte di griglia si colora di grigio e lui smette di giocare.
+Nel caso ci fossero solo 2 giocatori la partita termina direttamente.
+I quadrati viola indicano le mosse possibili
+vengono colorati i quadrati bianchi che si trovano in alto e a destra dal punto toccato.
+In questa modalità ogni giocatore è costretto a scegliere una mossa tra quelle disponibili
+toccare in qualsiasi altra posizione sarebbe inutile, le mosse disponibili sono sempre minimo 2.
+Colorata una certa percentuale della griglia, non vi saranno più vincoli.
+Modalità
+Senza limiti
+Scelta forzata
+Menù
+Gioco
+Usa Bonus!
+
+
+
+
+
+
+
+
+Sei sicuro di voler uscire?
+Si
+No
+Cancella tutto
+Salva screen
+Salva nel telefono
+Tocca per vederne altre
+Bonus
+Durante la partita sarà possibile trovare dei bonus all'interno dei quadrati.
+Colorata la casella in cui si trovano, sarà possibile utilizzarli il turno successivo.
+Permette di scambiare i tuoi punti con quelli di un altro giocatore, semplicemente
+toccando un quadrato del giocatore in questione.
+P.S. Se tocchi una tua casella, il bonus verrà perso.
+Tutorial: Colpisci il quadrato giallo!
+Non fare il furbo!
+Tutorial: Adesso è il turno del tuo avversario!
+Tutorial: Colpirà in questo punto!
+Ricorda: Vince chi possiede meno quadrati alla fine della partita!
+Tutorial: Prendere tanti quadrati può essere rischioso, ma è un ottima strategia!
+Tutorial: Appariranno dei bonus in certi momenti della partita!
+Tutorial: Colora il quadrato dove è presente questo bonus per utilizzarlo!
+Tutorial: Ora colpisci una casella del tuo avversario!
+Tutorial: Un ultima mossa!
+Ricorda: L'ultimo quadrato vale 150 punti extra!
+Questa è stata un esempio di una partita a Raster!
+Tocca qua per continuare
+Colpisci il quadrato giallo per continuare!
+Aiuto in gioco
