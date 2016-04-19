@@ -1,4 +1,4 @@
-package processing.test.tehraster;
+package processing.test.raster;
 
 import processing.core.*; 
 import processing.data.*; 
@@ -32,7 +32,7 @@ import java.io.InputStream;
 import java.io.OutputStream; 
 import java.io.IOException; 
 
-public class TehRaster extends PApplet {
+public class Raster extends PApplet {
 
 
 
@@ -3529,7 +3529,7 @@ public void selectLingua() {
   text(">", 500*width/640, 180*height/360);
 }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "--present", "--window-color=#666666", "--stop-color=#cccccc", "TehRaster" };
+    String[] appletArgs = new String[] { "--present", "--window-color=#666666", "--stop-color=#cccccc", "Raster" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {
