@@ -14,9 +14,9 @@ public void primaparte() {
     //Appare il primo popup
     popup(parola[83], true);
   } else if ( Nmosse == 1) {
-    boolean punto = mouseX >= (23*(qx-3))*width/640 && mouseX  <= (((23*(qx-3))*width/640) + 22.5f*width/640) && mouseY>= (23*3)*height/360 && mouseY  <= (((23*3)*height/360) + 22.5f*height/360);
+    boolean punto = mouseX >= (23*(qx-3))*width/640 && mouseX  <= (((23*(qx-3))*width/640) + 22*width/640) && mouseY>= (23*3)*height/360 && mouseY  <= (((23*3)*height/360) + 22*height/360);
     //Chiuso il popup si illumina una sola casella, dove dovr\u00e0 toccare l'utente
-    image(square, 23*(qx-3)*width/640, 23*3*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(qx-3)*width/640, 23*3*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[qx-4][2].tantipunti();
@@ -29,7 +29,7 @@ public void primaparte() {
   } else if ( Nmosse == 2) {
     popup(parola[85], true);
   } else if (Nmosse == 3) {
-    image(square, 23*(qx-8)*width/640, 23*7*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(qx-8)*width/640, 23*7*height/360, 22*width/640, 22*height/360);
     popup(parola[86], true);
   } else if (Nmosse == 4) {
     bot2.liv10();
@@ -38,8 +38,8 @@ public void primaparte() {
   } else if (Nmosse == 6) {
     popup(parola[88], true);
   } else if ( Nmosse == 7) {
-    boolean punto = mouseX >= (23)*width/640 && mouseX  <= (((23)*width/640) + 22.5f*width/640) && mouseY>= (23*8)*height/360 && mouseY  <= (((23*8)*height/360) + 22.5f*height/360);
-    image(square, 23*width/640, 23*8*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23)*width/640 && mouseX  <= (((23)*width/640) + 22*width/640) && mouseY>= (23*8)*height/360 && mouseY  <= (((23*8)*height/360) + 22*height/360);
+    image(square, 23*width/640, 23*8*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[0][7].tantipunti();
@@ -52,7 +52,7 @@ public void primaparte() {
   } else if (Nmosse == 8) {
     popup(parola[85], true);
   } else if (Nmosse == 9) {
-    image(square, 23*(9)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(9)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
     popup(parola[86], true);
   } else if (Nmosse == 10) {
     bot2.liv10();
@@ -61,9 +61,9 @@ public void primaparte() {
   } else if (Nmosse == 12) {
     popup(parola[90], true);
   } else if (Nmosse == 13) {
-    boolean punto = mouseX >= (23*8)*width/640 && mouseX  <= (((23*8)*width/640) + 22.5f*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22.5f*height/360);
-    image(square, 23*(8)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
-    image(SW, 23*(8)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*8)*width/640 && mouseX  <= (((23*8)*width/640) + 22*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22*height/360);
+    image(square, 23*(8)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
+    image(SW, 23*(8)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[7][8].tantipunti();
@@ -74,15 +74,15 @@ public void primaparte() {
       popup(parola[84]+"\n"+parola[96], false); //Splasha popup 'non fare il furbo'
     }
   } else if (Nmosse == 14) {
-    image(square, 23*(7)*width/640, 23*10*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(7)*width/640, 23*10*height/360, 22*width/640, 22*height/360);
     popup(parola[85], true);
   } else if (Nmosse == 15) {
     bot2.liv10();
   } else if (Nmosse == 16) {
     popup(parola[91], true);
   } else if (Nmosse == 17) {
-    boolean punto = mouseX >= (23*(qx-7))*width/640 && mouseX  <= (((23*(qx-7))*width/640) + 22.5f*width/640) && mouseY>= (23*6)*height/360 && mouseY  <= (((23*6)*height/360) + 22.5f*height/360);
-    image(square, 23*(qx-7)*width/640, 23*6*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*(qx-7))*width/640 && mouseX  <= (((23*(qx-7))*width/640) + 22*width/640) && mouseY>= (23*6)*height/360 && mouseY  <= (((23*6)*height/360) + 22*height/360);
+    image(square, 23*(qx-7)*width/640, 23*6*height/360, 22*width/640, 22*height/360);
     g1.p1 = true;
     if (punto && released) {
       g1.play = true;
@@ -92,8 +92,8 @@ public void primaparte() {
       popup(parola[84]+"\n"+parola[96], false); //Splasha popup 'non fare il furbo'
     }
   } else if ( Nmosse == 18) {
-    boolean punto = mouseX >= (23*(3))*width/640 && mouseX  <= (((23*(3))*width/640) + 22.5f*width/640) && mouseY>= (23*10)*height/360 && mouseY  <= (((23*10)*height/360) + 22.5f*height/360);
-    image(square, 23*(3)*width/640, 23*10*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*(3))*width/640 && mouseX  <= (((23*(3))*width/640) + 22*width/640) && mouseY>= (23*10)*height/360 && mouseY  <= (((23*10)*height/360) + 22*height/360);
+    image(square, 23*(3)*width/640, 23*10*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[2][9].tantipunti();
@@ -104,7 +104,7 @@ public void primaparte() {
       popup(parola[84]+"\n"+parola[96], false); //Splasha popup 'non fare il furbo'
     }
   } else if (Nmosse == 19) {
-    image(square, 23*(2)*width/640, 23*10*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(2)*width/640, 23*10*height/360, 22*width/640, 22*height/360);
     popup(parola[86], true);
   } else if (Nmosse == 20) {
     bot2.liv10();
@@ -113,8 +113,8 @@ public void primaparte() {
   } else if (Nmosse == 22) {
     popup(parola[93], true);
   } else if (Nmosse == 23) {
-    boolean punto = mouseX >= (23*(1))*width/640 && mouseX  <= (((23*(1))*width/640) + 22.5f*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22.5f*height/360);
-    image(square, 23*(1)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*(1))*width/640 && mouseX  <= (((23*(1))*width/640) + 22*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22*height/360);
+    image(square, 23*(1)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[0][8].tantipunti();
@@ -132,6 +132,7 @@ public void primaparte() {
     bot2.punt += 150;
     primavolta = false;
     scene = "game over";
+    salvamelo();
   } else if (Nmosse == 26) {
     primavolta = false;
     scene = "game over";

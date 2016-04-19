@@ -1,5 +1,0 @@
-https://forum.processing.org/two/discussion/6913/toast-in-proceesing
-http://developer.android.com/guide/topics/ui/notifiers/toasts.html
-http://stackoverflow.com/questions/3500197/how-to-display-toast-in-android
-https://gyazo.com/2fa8c828cacb3e7c074abb5ed24b2e3f
-http://developer.android.com/reference/android/widget/Toast.html

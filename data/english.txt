@@ -96,3 +96,4 @@ This was an example of a game Raster!
 Tap here to continue
 Hit the yellow square to continue!
 Help in game
+More Games

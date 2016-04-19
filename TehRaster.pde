@@ -18,12 +18,12 @@ import android.content.Intent;
 import android.widget.Toast;
 //final int REQUEST_ENABLE_BT = 4;
 PGraphics screen;
-PImage popup, square;
+PImage popup, square;// load[] = new PImage[7];
 //ControlP5 cp5;
 Activity activity;// = this.getActivity();
 Context context;// = new Context();
 //Slider abc;
-APMediaPlayer theme ,music ,splash;
+APMediaPlayer theme, music, splash;
 //Theme per il menu, music per il gioco:
 Quadrato[][] q = new Quadrato[25][10];
 int qx = q.length, qy = q[0].length;
@@ -38,7 +38,7 @@ String[] list;// = new String[30]; //Lista di dati per il salvataggio
 boolean playG, playB;
 int i, a=0, b= 1, r, sf = 0, sc; // indici;
 int totale, G1, G2, G3, G4, BOT2, BOT3, BOT4, aspetta; //Variabile relative ai punteggi
-int Ngioc, Ncpu, Lcpu, think, setThink = 60;
+int Ngioc = 1, Ncpu, Lcpu, think, setThink = 60;
 //float dw, dh;
 PImage OP, RT, SF, SW, MN, Logo, Face, Games, CC, info, play, icon, YouTube, Flag[] = new PImage[2];
 int back = color(49, 64, 86);
@@ -67,12 +67,12 @@ public void settings() {
   theme.setMediaFile("men.mp3");
   theme.setLooping(true);
   theme.setVolume(1.0f, 1.0f);  
-  
+
   music=new APMediaPlayer(this);
   music.setMediaFile("pia.mp3");
   music.setLooping(true);
   music.setVolume(0.3f, 0.3f);
-  
+
   splash= new APMediaPlayer(this);
   splash.setMediaFile("lol.mp3");
   splash.setLooping(false);
@@ -101,28 +101,8 @@ public void setup() {
     scrittura(string);
     lettura();
   }
-  sli = 1;
-  //font = createFont("PenguinAttack.ttf", 20);
-  //textFont(font);
-  // }*/
-  //activity = this.getActivity();
-  //context = activity.getApplicationContext();
-  /* if (displayWidth % 960 == 0 && displayHeight % 540 == 0) {
-  dw  = (displayWidth/640) * 1.5f;
-  dh = (displayHeight/360) * 1.5f;
-} else if ( displayWidth % 800 == 0 && displayHeight % 480 == 0) {
-  dw  = (displayWidth/640) * 1.25f;
- dh  = (displayHeight/360) * 1.33f;
-} 
-if ( displayWidth % 640 == 0 || displayHeight % 360 == 0) {
-  dw  = displayWidth/640;
-  dh  = displayHeight/360;
-  if (dw > dh)
-    dh = dw;
-  else if (dh > dw)
-    dw = height/360;
-}   
-*/
+  sli = 1;   
+
 
   if (displayWidth >= 640 ||displayHeight >= 360) {
     OP = loadImage("Options.png");
@@ -170,10 +150,10 @@ if ( displayWidth % 640 == 0 || displayHeight % 360 == 0) {
   }
   //primavolta = false;
 }
-
 public void draw() {
   if (frameCount > 200)
     background(200);
+
   g1.po();
   if ( g1.p1 == true || g2.p1 == true || g3.p1 == true || g4.p1 == true ) //Controllo se almeno un giocatore ha attivato il perk!
     pU = true;
@@ -215,7 +195,6 @@ public void draw() {
     }
   } else if (scene.equals("menu") && frameCount > 200) {
     textAlign(CENTER);
-    //image(Logo, 380*width/640, 30*height/360, displayWidth-380*width/640, displayHeight); 
     scena();
     scritte();
   } else if (scene.equals("set play")) {
@@ -224,7 +203,6 @@ public void draw() {
     credits();
   } else if (scene.equals("game over")) {
     // println(q[0][q[0].length-1].player);
-    textSize (18*height/360);
     gameover();
   } else if (scene.equals("options")) {
     caricamento();
@@ -236,6 +214,7 @@ public void draw() {
   } else if (scene.equals("storico")) {
     storico();
   }
+
   if (touch == false)
     released = false;
   touch = true;
@@ -286,15 +265,16 @@ public void mouseReleased() {
   } else if ( scene.equals("lingua")) {
     selectRL(); //Menu inziale per la prima volta che si gioca
   }
-  if (!victory.equals("")) { //Faccio ricoaminciare la partita
-    if (mouseX >= 240*width/640 && mouseY >= 200*height/360 && mouseX <= 400*width/640 && mouseY <= 230*height/360) {
+  if (!victory.equals("")) { //Faccio ricominciare la partita
+    if (mouseX >= 200*width/640 && mouseY >= 135*height/360 && mouseX <= 450*width/640 && mouseY <= 215*height/360 && !primavolta) {
       screenshot();
       savePhoto();
       reset();
-      /*if (FTIME <= 2) {
-       FTIME = 3;
-       }*/
-    }
+    } else if (mouseY >= 345*height/360)
+      link("https://play.google.com/store/search?q=pub%3AJarsick");
+
+    if (mouseX >= 270*width/640 && mouseX <= 370*width/640 && mouseY >= 250*height/360 && mouseY <= 300*height/360)
+      take = !take;
   }
   if (touch == true) {
     released = true;
@@ -315,7 +295,7 @@ public void griglia() {
 
 
 
-int modes;
+int modes = 1;
 public void setPlay() { //IMPOSTAZIONE DELLA PARTITA
   fill(60);
   textSize (18*height/360);
@@ -478,8 +458,7 @@ public void reset() {
   scene = "menu"; 
   G1 = G2 = G3 = G4 = BOT2 = BOT3 = BOT4 = a = aspetta = i = r = Lcpu = g1.punt = g2.punt = g3.punt = g4.punt = bot2.punt = bot3.punt = bot4.punt = 
     bot2.ex = bot3.ex = bot4.ex = g1.ex = g2.ex = g3.ex = g4.ex = 0;
-  Ngioc = Ncpu = 1;
-  b = modes = 1;
+  b = 1;
   R = G = B = 20;
   IA = end = touch = released = g2.exist = g3.exist = g4.exist = bot2.exist = bot3.exist = bot4.exist = g2.play = g3.play = g4.play = bot2.play = bot3.play = bot4.play =
     g1.squalifica = g2.squalifica = g3.squalifica = g4.squalifica = bot2.squalifica = bot3.squalifica = bot4.squalifica = 
@@ -501,58 +480,54 @@ public void reset() {
 }
 //private InterstitialAd mInterstitialAd;
 public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-  /*if (!isTaskRoot()) {
-    finish();
-    return;
-  }*/
+  super.onCreate(savedInstanceState);
   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
   //mInterstitialAd = new InterstitialAd(this);
   //mInterstitialAd.setAdUnitId("ca-app-pub-5012960537308882/3697402259");
 }
 /*
 public void adManager()
-{
-  requestNewInterstitial();
-  adListener();
-  requestNewInterstitial();
-  adListener();  
-}
-
-private void requestNewInterstitial() {
-    AdRequest adRequest = new AdRequest.Builder()
-              .addTestDevice("02157df20ae82908")
-              .build();
-
-    mInterstitialAd.loadAd(adRequest);
-}
-
-public void adListener()
-{
-  
-   mInterstitialAd.setAdListener(new AdListener() {
-       @Override
-          public void onAdLoaded()
-          {
-            displayAd();
-          }
-         @Override
-         public void onAdClosed() {
-             //requestNewInterstitial();
-         }
-     });}
-
-public void displayAd(){
-if (mInterstitialAd.isLoaded()) {
-    mInterstitialAd.show();
+ {
+ requestNewInterstitial();
+ adListener();
+ requestNewInterstitial();
+ adListener();  
  }
-}
-*/
+ 
+ private void requestNewInterstitial() {
+ AdRequest adRequest = new AdRequest.Builder()
+ .addTestDevice("02157df20ae82908")
+ .build();
+ 
+ mInterstitialAd.loadAd(adRequest);
+ }
+ 
+ public void adListener()
+ {
+ 
+ mInterstitialAd.setAdListener(new AdListener() {
+ @Override
+ public void onAdLoaded()
+ {
+ displayAd();
+ }
+ @Override
+ public void onAdClosed() {
+ //requestNewInterstitial();
+ }
+ });}
+ 
+ public void displayAd(){
+ if (mInterstitialAd.isLoaded()) {
+ mInterstitialAd.show();
+ }
+ }
+ */
 public void onPause() {
   super.onPause();
-      splash.pause();
-      music.pause();
-      theme.pause();
+  splash.pause();
+  music.pause();
+  theme.pause();
   println("Pause");
 }
 
@@ -562,22 +537,22 @@ public void onResume() {
 }
 
 public void onStop() { 
-    super.onStop();
-    splash.pause();
-      music.pause();
-      theme.pause();
+  super.onStop();
+  splash.pause();
+  music.pause();
+  theme.pause();
   println("Stop");
 }
 
 public void onDestroy() {
   super.onDestroy();
   println("Destroy");
-  if(splash!=null)
-  splash.release();
-  if(theme!=null)
-  theme.release();
-  if(music!=null)
-  music.release();
+  if (splash!=null)
+    splash.release();
+  if (theme!=null)
+    theme.release();
+  if (music!=null)
+    music.release();
 }
 
 
@@ -595,14 +570,18 @@ public void onBackPressed() {
     reset();
     tutorial = sc = pag = 0;
   }
-   bP++;
+  bP++;
   if (bP == 5) {
-  //  splashaAd();
+    //  splashaAd();
   }
   if (bP >= 10) {
     bP = 3;
     //Nel caso in cui si buggasse, non si sa mai
   }
+  salvamelo();
+}
+
+public void salvamelo() {
   realString=str(sli)+parseChar(10)+
     language+parseChar(10)+
     str(musicMn)+parseChar(10)+
@@ -622,12 +601,12 @@ public void onBackPressed() {
 public void splashaAd() {
   //Fai vedere l'ad e resetti il contatore (la variabile bP) quando \u00e8 stato chiuso l'ad 
   /*mouseX = width/2;
-  mouseY = height/2;
-  mousePressed = true;
-  mousePressed();
-  mouseReleased();
-  mousePressed = false;*/
- //adManager();
+   mouseY = height/2;
+   mousePressed = true;
+   mousePressed();
+   mouseReleased();
+   mousePressed = false;*/
+  //adManager();
 }
 
 public void suoneria() {
@@ -651,7 +630,7 @@ public void suoneria() {
       music.start();
     }
     if (musicTh && sound) {
-    theme.seekTo(0);
+      theme.seekTo(0);
       theme.pause();
     }
   } else if (!scene.equals("play") && frameCount > 200) {

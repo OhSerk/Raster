@@ -54,12 +54,12 @@ public class TehRaster extends PApplet {
 
 //final int REQUEST_ENABLE_BT = 4;
 PGraphics screen;
-PImage popup, square;
+PImage popup, square;// load[] = new PImage[7];
 //ControlP5 cp5;
 Activity activity;// = this.getActivity();
 Context context;// = new Context();
 //Slider abc;
-APMediaPlayer theme ,music ,splash;
+APMediaPlayer theme, music, splash;
 //Theme per il menu, music per il gioco:
 Quadrato[][] q = new Quadrato[25][10];
 int qx = q.length, qy = q[0].length;
@@ -74,7 +74,7 @@ String[] list;// = new String[30]; //Lista di dati per il salvataggio
 boolean playG, playB;
 int i, a=0, b= 1, r, sf = 0, sc; // indici;
 int totale, G1, G2, G3, G4, BOT2, BOT3, BOT4, aspetta; //Variabile relative ai punteggi
-int Ngioc, Ncpu, Lcpu, think, setThink = 60;
+int Ngioc = 1, Ncpu, Lcpu, think, setThink = 60;
 //float dw, dh;
 PImage OP, RT, SF, SW, MN, Logo, Face, Games, CC, info, play, icon, YouTube, Flag[] = new PImage[2];
 int back = color(49, 64, 86);
@@ -103,12 +103,12 @@ public void settings() {
   theme.setMediaFile("men.mp3");
   theme.setLooping(true);
   theme.setVolume(1.0f, 1.0f);  
-  
+
   music=new APMediaPlayer(this);
   music.setMediaFile("pia.mp3");
   music.setLooping(true);
   music.setVolume(0.3f, 0.3f);
-  
+
   splash= new APMediaPlayer(this);
   splash.setMediaFile("lol.mp3");
   splash.setLooping(false);
@@ -137,28 +137,8 @@ public void setup() {
     scrittura(string);
     lettura();
   }
-  sli = 1;
-  //font = createFont("PenguinAttack.ttf", 20);
-  //textFont(font);
-  // }*/
-  //activity = this.getActivity();
-  //context = activity.getApplicationContext();
-  /* if (displayWidth % 960 == 0 && displayHeight % 540 == 0) {
-  dw  = (displayWidth/640) * 1.5f;
-  dh = (displayHeight/360) * 1.5f;
-} else if ( displayWidth % 800 == 0 && displayHeight % 480 == 0) {
-  dw  = (displayWidth/640) * 1.25f;
- dh  = (displayHeight/360) * 1.33f;
-} 
-if ( displayWidth % 640 == 0 || displayHeight % 360 == 0) {
-  dw  = displayWidth/640;
-  dh  = displayHeight/360;
-  if (dw > dh)
-    dh = dw;
-  else if (dh > dw)
-    dw = height/360;
-}   
-*/
+  sli = 1;   
+
 
   if (displayWidth >= 640 ||displayHeight >= 360) {
     OP = loadImage("Options.png");
@@ -206,10 +186,10 @@ if ( displayWidth % 640 == 0 || displayHeight % 360 == 0) {
   }
   //primavolta = false;
 }
-
 public void draw() {
   if (frameCount > 200)
     background(200);
+
   g1.po();
   if ( g1.p1 == true || g2.p1 == true || g3.p1 == true || g4.p1 == true ) //Controllo se almeno un giocatore ha attivato il perk!
     pU = true;
@@ -251,7 +231,6 @@ public void draw() {
     }
   } else if (scene.equals("menu") && frameCount > 200) {
     textAlign(CENTER);
-    //image(Logo, 380*width/640, 30*height/360, displayWidth-380*width/640, displayHeight); 
     scena();
     scritte();
   } else if (scene.equals("set play")) {
@@ -260,7 +239,6 @@ public void draw() {
     credits();
   } else if (scene.equals("game over")) {
     // println(q[0][q[0].length-1].player);
-    textSize (18*height/360);
     gameover();
   } else if (scene.equals("options")) {
     caricamento();
@@ -272,6 +250,7 @@ public void draw() {
   } else if (scene.equals("storico")) {
     storico();
   }
+
   if (touch == false)
     released = false;
   touch = true;
@@ -322,15 +301,16 @@ public void mouseReleased() {
   } else if ( scene.equals("lingua")) {
     selectRL(); //Menu inziale per la prima volta che si gioca
   }
-  if (!victory.equals("")) { //Faccio ricoaminciare la partita
-    if (mouseX >= 240*width/640 && mouseY >= 200*height/360 && mouseX <= 400*width/640 && mouseY <= 230*height/360) {
+  if (!victory.equals("")) { //Faccio ricominciare la partita
+    if (mouseX >= 200*width/640 && mouseY >= 135*height/360 && mouseX <= 450*width/640 && mouseY <= 215*height/360 && !primavolta) {
       screenshot();
       savePhoto();
       reset();
-      /*if (FTIME <= 2) {
-       FTIME = 3;
-       }*/
-    }
+    } else if (mouseY >= 345*height/360)
+      link("https://play.google.com/store/search?q=pub%3AJarsick");
+
+    if (mouseX >= 270*width/640 && mouseX <= 370*width/640 && mouseY >= 250*height/360 && mouseY <= 300*height/360)
+      take = !take;
   }
   if (touch == true) {
     released = true;
@@ -351,7 +331,7 @@ public void griglia() {
 
 
 
-int modes;
+int modes = 1;
 public void setPlay() { //IMPOSTAZIONE DELLA PARTITA
   fill(60);
   textSize (18*height/360);
@@ -514,8 +494,7 @@ public void reset() {
   scene = "menu"; 
   G1 = G2 = G3 = G4 = BOT2 = BOT3 = BOT4 = a = aspetta = i = r = Lcpu = g1.punt = g2.punt = g3.punt = g4.punt = bot2.punt = bot3.punt = bot4.punt = 
     bot2.ex = bot3.ex = bot4.ex = g1.ex = g2.ex = g3.ex = g4.ex = 0;
-  Ngioc = Ncpu = 1;
-  b = modes = 1;
+  b = 1;
   R = G = B = 20;
   IA = end = touch = released = g2.exist = g3.exist = g4.exist = bot2.exist = bot3.exist = bot4.exist = g2.play = g3.play = g4.play = bot2.play = bot3.play = bot4.play =
     g1.squalifica = g2.squalifica = g3.squalifica = g4.squalifica = bot2.squalifica = bot3.squalifica = bot4.squalifica = 
@@ -537,58 +516,54 @@ public void reset() {
 }
 //private InterstitialAd mInterstitialAd;
 public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-  /*if (!isTaskRoot()) {
-    finish();
-    return;
-  }*/
+  super.onCreate(savedInstanceState);
   getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
   //mInterstitialAd = new InterstitialAd(this);
   //mInterstitialAd.setAdUnitId("ca-app-pub-5012960537308882/3697402259");
 }
 /*
 public void adManager()
-{
-  requestNewInterstitial();
-  adListener();
-  requestNewInterstitial();
-  adListener();  
-}
-
-private void requestNewInterstitial() {
-    AdRequest adRequest = new AdRequest.Builder()
-              .addTestDevice("02157df20ae82908")
-              .build();
-
-    mInterstitialAd.loadAd(adRequest);
-}
-
-public void adListener()
-{
-  
-   mInterstitialAd.setAdListener(new AdListener() {
-       @Override
-          public void onAdLoaded()
-          {
-            displayAd();
-          }
-         @Override
-         public void onAdClosed() {
-             //requestNewInterstitial();
-         }
-     });}
-
-public void displayAd(){
-if (mInterstitialAd.isLoaded()) {
-    mInterstitialAd.show();
+ {
+ requestNewInterstitial();
+ adListener();
+ requestNewInterstitial();
+ adListener();  
  }
-}
-*/
+ 
+ private void requestNewInterstitial() {
+ AdRequest adRequest = new AdRequest.Builder()
+ .addTestDevice("02157df20ae82908")
+ .build();
+ 
+ mInterstitialAd.loadAd(adRequest);
+ }
+ 
+ public void adListener()
+ {
+ 
+ mInterstitialAd.setAdListener(new AdListener() {
+ @Override
+ public void onAdLoaded()
+ {
+ displayAd();
+ }
+ @Override
+ public void onAdClosed() {
+ //requestNewInterstitial();
+ }
+ });}
+ 
+ public void displayAd(){
+ if (mInterstitialAd.isLoaded()) {
+ mInterstitialAd.show();
+ }
+ }
+ */
 public void onPause() {
   super.onPause();
-      splash.pause();
-      music.pause();
-      theme.pause();
+  splash.pause();
+  music.pause();
+  theme.pause();
   println("Pause");
 }
 
@@ -598,22 +573,22 @@ public void onResume() {
 }
 
 public void onStop() { 
-    super.onStop();
-    splash.pause();
-      music.pause();
-      theme.pause();
+  super.onStop();
+  splash.pause();
+  music.pause();
+  theme.pause();
   println("Stop");
 }
 
 public void onDestroy() {
   super.onDestroy();
   println("Destroy");
-  if(splash!=null)
-  splash.release();
-  if(theme!=null)
-  theme.release();
-  if(music!=null)
-  music.release();
+  if (splash!=null)
+    splash.release();
+  if (theme!=null)
+    theme.release();
+  if (music!=null)
+    music.release();
 }
 
 
@@ -631,14 +606,18 @@ public void onBackPressed() {
     reset();
     tutorial = sc = pag = 0;
   }
-   bP++;
+  bP++;
   if (bP == 5) {
-  //  splashaAd();
+    //  splashaAd();
   }
   if (bP >= 10) {
     bP = 3;
     //Nel caso in cui si buggasse, non si sa mai
   }
+  salvamelo();
+}
+
+public void salvamelo() {
   realString=str(sli)+parseChar(10)+
     language+parseChar(10)+
     str(musicMn)+parseChar(10)+
@@ -658,12 +637,12 @@ public void onBackPressed() {
 public void splashaAd() {
   //Fai vedere l'ad e resetti il contatore (la variabile bP) quando \u00e8 stato chiuso l'ad 
   /*mouseX = width/2;
-  mouseY = height/2;
-  mousePressed = true;
-  mousePressed();
-  mouseReleased();
-  mousePressed = false;*/
- //adManager();
+   mouseY = height/2;
+   mousePressed = true;
+   mousePressed();
+   mouseReleased();
+   mousePressed = false;*/
+  //adManager();
 }
 
 public void suoneria() {
@@ -687,7 +666,7 @@ public void suoneria() {
       music.start();
     }
     if (musicTh && sound) {
-    theme.seekTo(0);
+      theme.seekTo(0);
       theme.pause();
     }
   } else if (!scene.equals("play") && frameCount > 200) {
@@ -1616,10 +1595,10 @@ public void TurniGiocatori() { //Si passa il turno da un giocatore all'altro da 
             bot4.play = false;
           }
         }//Chiudo condizione senza sqalifiche
-        else if (g1.squalifica == true && bot2.squalifica == false && bot3.squalifica == false && bot4.squalifica == false){// && (BOT2 != bot2.punt || BOT3 != bot3.punt || BOT4 != bot4.punt)) { //G1 squalificato
+        else if (g1.squalifica == true && bot2.squalifica == false && bot3.squalifica == false && bot4.squalifica == false) {// && (BOT2 != bot2.punt || BOT3 != bot3.punt || BOT4 != bot4.punt)) { //G1 squalificato
           g1.play = false;
           if (bot2.play == true && bot3.play == false && bot4.play == false && BOT2 != bot2.punt && !pausa) { //Passa il turno al giocatore 3
-           // println("2");
+            // println("2");
             bot2.play = false;
             bot3.play = true;
             bot4.play = false;
@@ -1700,7 +1679,6 @@ public void TurniGiocatori() { //Si passa il turno da un giocatore all'altro da 
 
 
 public void gameover() { //Schermata di gameover che stampa il noyme del vincitore
-  //screenshot();
   background(130);
   if (Ngioc == 1 && Ncpu == 1) { //1v1 VS PC
     if (g1.punt < bot2.punt)
@@ -1790,14 +1768,32 @@ public void gameover() { //Schermata di gameover che stampa il noyme del vincito
   }
   punteggi();
   fill(240);
+  stroke(0);
+  rect(200*width/640, 135*height/360, 250*width/640, 80*height/360); //Bottone per il main men\u00f9
+  rect(0, 320*height/360, width, height); //Jarsick Games
+
+  textSize(18*height/360);
   if (victory != parola[8]+"!") {
-    text(parola[19]+"\n"+victory, 320*width/640, 120*height/360);
+    text(parola[19]+"\n"+victory, 320*width/640, 100*height/360);
   } else
-    text(victory, 320*width/640, 120*height/360);
-  rect(240*width/640, 200*height/360, 160*width/640, 30*height/360);
+    text(victory, 320*width/640, 100*height/360);
   fill(0);
-  text(parola[20], 320*width/640, 220*height/360);
+  text(parola[98], 320*width/640, 345*height/360); //https://play.google.com/store/search?q=pub%3AJarsick
+  text(parola[74]+"?", 320*width/640, 250*height/360); //Salva screen?
+  if (TSP == 0) //Resetto questa variabile quando cambio la lingua
+    for (int ix = 15; ix < 40; ix++) {
+      if ((parola[20].length()/2)*ix*height/360 >= 450) {
+        TSP = ix;
+        break;
+      }
+    }
+  textSize(TSP*height/360);
+ // println(TSP);
+  text(parola[20], 320*width/640, 180*height/360);
+  text(parola[71+PApplet.parseInt(!take)], 320*width/640, 290*height/360); //Si no
+  textSize(18*height/360);
 }
+int TSP = 0;
 
 public void caricamento() {
 
@@ -2417,6 +2413,7 @@ public void selectRL() {
   // 320*width/640, 180*height/360, 210*width/640, 160*height/360
   if (mouseX >= 215*width/640 && mouseX <= 425*width/640 && mouseY >= 130*height/360 && mouseY <= 290*height/360) {
     scene = "menu";
+    salvamelo();
     mouseY = mouseX = 0;
   }
 }
@@ -2435,13 +2432,13 @@ public void oRL() { //Modifica le opzioni durante la partita
   }
   if (mouseX >= 20*width/640 && mouseX <= 110*width/640 && mouseY >= 270*height/360 && mouseY <= 360*height/360 &&(!bot2.play && !bot3.play && !bot4.play )) {
     playopts =! playopts;
-    for(int i = 0; i < qx; i++)
-      for(int j = 0; j < qy; j++)
+    for (int i = 0; i < qx; i++)
+      for (int j = 0; j < qy; j++)
         q[i][j].posizione = false;
   }
   if (playopts == true) {
-    if(mouseX >= 270*width/640 && mouseX <= 360*width/640 && mouseY >= 250*height/360 && mouseY <= 300*height/360){
-       gameHelp = !gameHelp; 
+    if (mouseX >= 270*width/640 && mouseX <= 360*width/640 && mouseY >= 250*height/360 && mouseY <= 300*height/360) {
+      gameHelp = !gameHelp;
     }
     if (mouseX >= 540*width/640 && mouseY >= 70*height/360 && mouseY <= 200*height/360) {  
       if (pg < 1)
@@ -2494,6 +2491,7 @@ public void optRl() { //Men\u00f9 di opzioni
        language = "Espanol";
        else if (language.equals("Espanol"))*/
       language = "English";
+      TSP = 0; //Azzero la grandezza del testo della scritta "Torna al men\u00f9"
   }
 }
 
@@ -2702,9 +2700,9 @@ public void primaparte() {
     //Appare il primo popup
     popup(parola[83], true);
   } else if ( Nmosse == 1) {
-    boolean punto = mouseX >= (23*(qx-3))*width/640 && mouseX  <= (((23*(qx-3))*width/640) + 22.5f*width/640) && mouseY>= (23*3)*height/360 && mouseY  <= (((23*3)*height/360) + 22.5f*height/360);
+    boolean punto = mouseX >= (23*(qx-3))*width/640 && mouseX  <= (((23*(qx-3))*width/640) + 22*width/640) && mouseY>= (23*3)*height/360 && mouseY  <= (((23*3)*height/360) + 22*height/360);
     //Chiuso il popup si illumina una sola casella, dove dovr\u00e0 toccare l'utente
-    image(square, 23*(qx-3)*width/640, 23*3*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(qx-3)*width/640, 23*3*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[qx-4][2].tantipunti();
@@ -2717,7 +2715,7 @@ public void primaparte() {
   } else if ( Nmosse == 2) {
     popup(parola[85], true);
   } else if (Nmosse == 3) {
-    image(square, 23*(qx-8)*width/640, 23*7*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(qx-8)*width/640, 23*7*height/360, 22*width/640, 22*height/360);
     popup(parola[86], true);
   } else if (Nmosse == 4) {
     bot2.liv10();
@@ -2726,8 +2724,8 @@ public void primaparte() {
   } else if (Nmosse == 6) {
     popup(parola[88], true);
   } else if ( Nmosse == 7) {
-    boolean punto = mouseX >= (23)*width/640 && mouseX  <= (((23)*width/640) + 22.5f*width/640) && mouseY>= (23*8)*height/360 && mouseY  <= (((23*8)*height/360) + 22.5f*height/360);
-    image(square, 23*width/640, 23*8*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23)*width/640 && mouseX  <= (((23)*width/640) + 22*width/640) && mouseY>= (23*8)*height/360 && mouseY  <= (((23*8)*height/360) + 22*height/360);
+    image(square, 23*width/640, 23*8*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[0][7].tantipunti();
@@ -2740,7 +2738,7 @@ public void primaparte() {
   } else if (Nmosse == 8) {
     popup(parola[85], true);
   } else if (Nmosse == 9) {
-    image(square, 23*(9)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(9)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
     popup(parola[86], true);
   } else if (Nmosse == 10) {
     bot2.liv10();
@@ -2749,9 +2747,9 @@ public void primaparte() {
   } else if (Nmosse == 12) {
     popup(parola[90], true);
   } else if (Nmosse == 13) {
-    boolean punto = mouseX >= (23*8)*width/640 && mouseX  <= (((23*8)*width/640) + 22.5f*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22.5f*height/360);
-    image(square, 23*(8)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
-    image(SW, 23*(8)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*8)*width/640 && mouseX  <= (((23*8)*width/640) + 22*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22*height/360);
+    image(square, 23*(8)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
+    image(SW, 23*(8)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[7][8].tantipunti();
@@ -2762,15 +2760,15 @@ public void primaparte() {
       popup(parola[84]+"\n"+parola[96], false); //Splasha popup 'non fare il furbo'
     }
   } else if (Nmosse == 14) {
-    image(square, 23*(7)*width/640, 23*10*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(7)*width/640, 23*10*height/360, 22*width/640, 22*height/360);
     popup(parola[85], true);
   } else if (Nmosse == 15) {
     bot2.liv10();
   } else if (Nmosse == 16) {
     popup(parola[91], true);
   } else if (Nmosse == 17) {
-    boolean punto = mouseX >= (23*(qx-7))*width/640 && mouseX  <= (((23*(qx-7))*width/640) + 22.5f*width/640) && mouseY>= (23*6)*height/360 && mouseY  <= (((23*6)*height/360) + 22.5f*height/360);
-    image(square, 23*(qx-7)*width/640, 23*6*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*(qx-7))*width/640 && mouseX  <= (((23*(qx-7))*width/640) + 22*width/640) && mouseY>= (23*6)*height/360 && mouseY  <= (((23*6)*height/360) + 22*height/360);
+    image(square, 23*(qx-7)*width/640, 23*6*height/360, 22*width/640, 22*height/360);
     g1.p1 = true;
     if (punto && released) {
       g1.play = true;
@@ -2780,8 +2778,8 @@ public void primaparte() {
       popup(parola[84]+"\n"+parola[96], false); //Splasha popup 'non fare il furbo'
     }
   } else if ( Nmosse == 18) {
-    boolean punto = mouseX >= (23*(3))*width/640 && mouseX  <= (((23*(3))*width/640) + 22.5f*width/640) && mouseY>= (23*10)*height/360 && mouseY  <= (((23*10)*height/360) + 22.5f*height/360);
-    image(square, 23*(3)*width/640, 23*10*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*(3))*width/640 && mouseX  <= (((23*(3))*width/640) + 22*width/640) && mouseY>= (23*10)*height/360 && mouseY  <= (((23*10)*height/360) + 22*height/360);
+    image(square, 23*(3)*width/640, 23*10*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[2][9].tantipunti();
@@ -2792,7 +2790,7 @@ public void primaparte() {
       popup(parola[84]+"\n"+parola[96], false); //Splasha popup 'non fare il furbo'
     }
   } else if (Nmosse == 19) {
-    image(square, 23*(2)*width/640, 23*10*height/360, 22.5f*width/640, 22.5f*height/360);
+    image(square, 23*(2)*width/640, 23*10*height/360, 22*width/640, 22*height/360);
     popup(parola[86], true);
   } else if (Nmosse == 20) {
     bot2.liv10();
@@ -2801,8 +2799,8 @@ public void primaparte() {
   } else if (Nmosse == 22) {
     popup(parola[93], true);
   } else if (Nmosse == 23) {
-    boolean punto = mouseX >= (23*(1))*width/640 && mouseX  <= (((23*(1))*width/640) + 22.5f*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22.5f*height/360);
-    image(square, 23*(1)*width/640, 23*9*height/360, 22.5f*width/640, 22.5f*height/360);
+    boolean punto = mouseX >= (23*(1))*width/640 && mouseX  <= (((23*(1))*width/640) + 22*width/640) && mouseY>= (23*9)*height/360 && mouseY  <= (((23*9)*height/360) + 22*height/360);
+    image(square, 23*(1)*width/640, 23*9*height/360, 22*width/640, 22*height/360);
     if (punto && released) {
       g1.play = true;
       q[0][8].tantipunti();
@@ -2820,6 +2818,7 @@ public void primaparte() {
     bot2.punt += 150;
     primavolta = false;
     scene = "game over";
+    salvamelo();
   } else if (Nmosse == 26) {
     primavolta = false;
     scene = "game over";
@@ -2846,6 +2845,7 @@ class Quadrato {
   boolean active, colore, posizione, releaseds = false, zona;
   boolean segno = false, cont = false;
   float lax, lay, lux, luy;
+  private float pos = 23, dim = 22;
   Quadrato(int posizioneX, int posizioneY, int numero, boolean attivo, int giocatore, boolean colorato, boolean area) {
     px = posizioneX; 
     py = posizioneY;
@@ -2860,22 +2860,21 @@ class Quadrato {
     // segno = false;
     if (!primavolta) {
       gioco();
-    } else 
-    stroke(1);
-
-    noStroke();
+    }
     colora();
     if (playopts == false) {
-      rect((23*px)*width/640, (23*py)*height/360, 22.5f*width/640, 22.5f*width/640);
+      strokeWeight(1);
+      stroke(0);
+      rect((pos*px)*width/640, (pos*py)*height/360, dim*width/640, dim*width/640);
       perks(ax, bx);// cx, dx);
     }
-    noStroke();
+    //noStroke();
   }
 
 
   public void gioco() {
     if (IA == false && (g1.play || g2.play || g3.play || g4.play) ) { //Se gioca un utente
-      if (mouseX >= (23*px)*width/640 && mouseX  <= (((23*px)*width/640) + 22.5f*width/640)  && mouseY>= (23*py)*height/360 && mouseY  <= (((23*py)*height/360) + 22.5f*height/360) && active == false) {
+      if (mouseX >= (pos*px)*width/640 && mouseX  <= (((pos*px)*width/640) + dim*width/640)  && mouseY>= (pos*py)*height/360 && mouseY  <= (((pos*py)*height/360) + dim*height/360) && active == false) {
         for (int i = 0; i < qx; i++) 
           for (int j = 0; j < qy; j++) 
             q[i][j].posizione = false;
@@ -2883,9 +2882,9 @@ class Quadrato {
         cont = true;
         if (gameHelp)
           Giallo();
-      } else if ((mouseX >= (23*px)*width/640 && mouseX  <= (((23*px)*width/640) + 22.5f*width/640)  && mouseY>= (23*py)*height/360 && mouseY  <= (((23*py)*height/360) + 22.5f*height/360) && active == true && touch == false && pU == true && !playopts)) {
+      } else if ((mouseX >= (pos*px)*width/640 && mouseX  <= (((pos*px)*width/640) + dim*width/640)  && mouseY>= (pos*py)*height/360 && mouseY  <= (((pos*py)*height/360) + dim*height/360) && active == true && touch == false && pU == true && !playopts)) {
         swish(px-1, py-1);
-      } else if (mouseX >= (23*q[0][q[0].length-1].px)*width/640 && mouseX  <= (((23*q[0][q[0].length-1].px)*width/640) + 22.5f*width/640)  && mouseY>= (23*q[0][q[0].length-1].py)*height/360 && mouseY  <= (((23*q[0][q[0].length-1].py)*height/360) + 22.5f*height/360) && totale <= qx*qy-5) {
+      } else if (mouseX >= (pos*q[0][q[0].length-1].px)*width/640 && mouseX  <= (((pos*q[0][q[0].length-1].px)*width/640) + dim*width/640)  && mouseY>= (pos*q[0][q[0].length-1].py)*height/360 && mouseY  <= (((pos*q[0][q[0].length-1].py)*height/360) + dim*height/360) && totale <= qx*qy-5) {
         q[0][q[0].length-1].posizione = false;
         q[0][q[0].length-1].active = false;
         q[0][q[0].length-1].zona = false;
@@ -2898,9 +2897,9 @@ class Quadrato {
         cont = false;
       }
     } else if (IA == true) { //Se gioca il PC
-      if (toccoX >= (23*px)*width/640 && toccoX  <= (((23*px)*width/640) + 22.5f*width/640)  && toccoY>= (23*py)*height/360 && toccoY  <= (((23*py)*height/360) + 22.5f*height/360) && active == false) {
+      if (toccoX >= (pos*px)*width/640 && toccoX  <= (((pos*px)*width/640) + dim*width/640)  && toccoY>= (pos*py)*height/360 && toccoY  <= (((pos*py)*height/360) + dim*height/360) && active == false) {
         posizione = true;
-      } else if (toccoX >= (23*q[0][q[0].length-1].px)*width/640 && toccoX  <= (((23*q[0][q[0].length-1].px)*width/640) + 22.5f*width/640)  && toccoY>= (23*q[0][q[0].length-1].py)*height/360 && toccoY  <= (((23*q[0][q[0].length-1].py)*height/360) + 22.5f*height/360) && totale <= qx*qy-5) {
+      } else if (toccoX >= (pos*q[0][q[0].length-1].px)*width/640 && toccoX  <= (((pos*q[0][q[0].length-1].px)*width/640) + dim*width/640)  && toccoY>= (pos*q[0][q[0].length-1].py)*height/360 && toccoY  <= (((pos*q[0][q[0].length-1].py)*height/360) + dim*height/360) && totale <= qx*qy-5) {
         // q[0][q[0].length-1].colore = false;   
         q[0][q[0].length-1].posizione = false;
         q[0][q[0].length-1].active = false;
@@ -3019,7 +3018,7 @@ class Quadrato {
   public void perks(int swx, int swy) {//, int mnx, int mny) {
     if (totale >= (qx*qy)-(qy*4) && bot2.play == false && bot3.play == false && bot4.play == false && playopts == false) {
       if (q[swx][swy].colore == false)
-        image(SW, (23*q[swx][swy].px)*width/640, (23*q[swx][swy].py)*height/360, 22.5f*width/640, 22.5f*width/640);
+        image(SW, (pos*q[swx][swy].px)*width/640, (pos*q[swx][swy].py)*height/360, dim*width/640, dim*width/640);
       //if (q[mnx][mny].colore == false)
       //    image(MN, (23*q[mnx][mny].px)*width/640, (23*q[mnx][mny].py)*height/360, 22.5*width/640, 22.5*width/640);
     }
@@ -3137,28 +3136,28 @@ public void creaFileVuoto() {
 }
 
 public void screenshot() {
-  screen = createGraphics(PApplet.parseInt(575*width/640), PApplet.parseInt(230*height/360), JAVA2D);
-  screen.beginDraw();
-  screen.textAlign(CENTER, CENTER);
-  screen.background(back);
-  if (totale >= (qx*qy)-1)
-    q[0][qy-1].colore = true;
-  for (a = 0; a < q.length; a++) {
-    for (b = 0; b < q[0].length; b++) {
-      if (q[a][b].player == 1)
-        screen.fill(g1.RGB);
-      else if (q[a][b].player == 2)
-        screen.fill(g2.RGB);
-      else if (q[a][b].player == 3)
-        screen.fill(g3.RGB);
-      else if (q[a][b].player == 4)
-        screen.fill(g4.RGB);
-      else if (!q[a][b].colore)
-        screen.fill(245);
-      screen.rect((23*a)*width/640, (23*b)*height/360, 22.5f*width/640, 22.5f*width/640);
+    screen = createGraphics(PApplet.parseInt(575*width/640), PApplet.parseInt(230*height/360), JAVA2D);
+    screen.beginDraw();
+    screen.textAlign(CENTER, CENTER);
+    screen.background(back);
+    if (totale >= (qx*qy)-1)
+      q[0][qy-1].colore = true;
+    for (a = 0; a < q.length; a++) {
+      for (b = 0; b < q[0].length; b++) {
+        if (q[a][b].player == 1)
+          screen.fill(g1.RGB);
+        else if (q[a][b].player == 2)
+          screen.fill(g2.RGB);
+        else if (q[a][b].player == 3)
+          screen.fill(g3.RGB);
+        else if (q[a][b].player == 4)
+          screen.fill(g4.RGB);
+        else if (!q[a][b].colore)
+          screen.fill(245);
+        screen.rect((23*a)*width/640, (23*b)*height/360, 22*width/640, 22*width/640);
+      }
     }
-  }
-  screen.endDraw();
+    screen.endDraw();
 }
 
 public void savePhoto() {
@@ -3530,7 +3529,7 @@ public void selectLingua() {
   text(">", 500*width/640, 180*height/360);
 }
   static public void main(String[] passedArgs) {
-    String[] appletArgs = new String[] { "TehRaster" };
+    String[] appletArgs = new String[] { "--present", "--window-color=#666666", "--stop-color=#cccccc", "TehRaster" };
     if (passedArgs != null) {
       PApplet.main(concat(appletArgs, passedArgs));
     } else {

@@ -3,6 +3,7 @@ class Quadrato {
   boolean active, colore, posizione, releaseds = false, zona;
   boolean segno = false, cont = false;
   float lax, lay, lux, luy;
+  private float pos = 23, dim = 22;
   Quadrato(int posizioneX, int posizioneY, int numero, boolean attivo, int giocatore, boolean colorato, boolean area) {
     px = posizioneX; 
     py = posizioneY;
@@ -17,22 +18,21 @@ class Quadrato {
     // segno = false;
     if (!primavolta) {
       gioco();
-    } else 
-    stroke(1);
-
-    noStroke();
+    }
     colora();
     if (playopts == false) {
-      rect((23*px)*width/640, (23*py)*height/360, 22.5f*width/640, 22.5f*width/640);
+      strokeWeight(1);
+      stroke(0);
+      rect((pos*px)*width/640, (pos*py)*height/360, dim*width/640, dim*width/640);
       perks(ax, bx);// cx, dx);
     }
-    noStroke();
+    //noStroke();
   }
 
 
   public void gioco() {
     if (IA == false && (g1.play || g2.play || g3.play || g4.play) ) { //Se gioca un utente
-      if (mouseX >= (23*px)*width/640 && mouseX  <= (((23*px)*width/640) + 22.5f*width/640)  && mouseY>= (23*py)*height/360 && mouseY  <= (((23*py)*height/360) + 22.5f*height/360) && active == false) {
+      if (mouseX >= (pos*px)*width/640 && mouseX  <= (((pos*px)*width/640) + dim*width/640)  && mouseY>= (pos*py)*height/360 && mouseY  <= (((pos*py)*height/360) + dim*height/360) && active == false) {
         for (int i = 0; i < qx; i++) 
           for (int j = 0; j < qy; j++) 
             q[i][j].posizione = false;
@@ -40,9 +40,9 @@ class Quadrato {
         cont = true;
         if (gameHelp)
           Giallo();
-      } else if ((mouseX >= (23*px)*width/640 && mouseX  <= (((23*px)*width/640) + 22.5f*width/640)  && mouseY>= (23*py)*height/360 && mouseY  <= (((23*py)*height/360) + 22.5f*height/360) && active == true && touch == false && pU == true && !playopts)) {
+      } else if ((mouseX >= (pos*px)*width/640 && mouseX  <= (((pos*px)*width/640) + dim*width/640)  && mouseY>= (pos*py)*height/360 && mouseY  <= (((pos*py)*height/360) + dim*height/360) && active == true && touch == false && pU == true && !playopts)) {
         swish(px-1, py-1);
-      } else if (mouseX >= (23*q[0][q[0].length-1].px)*width/640 && mouseX  <= (((23*q[0][q[0].length-1].px)*width/640) + 22.5f*width/640)  && mouseY>= (23*q[0][q[0].length-1].py)*height/360 && mouseY  <= (((23*q[0][q[0].length-1].py)*height/360) + 22.5f*height/360) && totale <= qx*qy-5) {
+      } else if (mouseX >= (pos*q[0][q[0].length-1].px)*width/640 && mouseX  <= (((pos*q[0][q[0].length-1].px)*width/640) + dim*width/640)  && mouseY>= (pos*q[0][q[0].length-1].py)*height/360 && mouseY  <= (((pos*q[0][q[0].length-1].py)*height/360) + dim*height/360) && totale <= qx*qy-5) {
         q[0][q[0].length-1].posizione = false;
         q[0][q[0].length-1].active = false;
         q[0][q[0].length-1].zona = false;
@@ -55,9 +55,9 @@ class Quadrato {
         cont = false;
       }
     } else if (IA == true) { //Se gioca il PC
-      if (toccoX >= (23*px)*width/640 && toccoX  <= (((23*px)*width/640) + 22.5f*width/640)  && toccoY>= (23*py)*height/360 && toccoY  <= (((23*py)*height/360) + 22.5f*height/360) && active == false) {
+      if (toccoX >= (pos*px)*width/640 && toccoX  <= (((pos*px)*width/640) + dim*width/640)  && toccoY>= (pos*py)*height/360 && toccoY  <= (((pos*py)*height/360) + dim*height/360) && active == false) {
         posizione = true;
-      } else if (toccoX >= (23*q[0][q[0].length-1].px)*width/640 && toccoX  <= (((23*q[0][q[0].length-1].px)*width/640) + 22.5f*width/640)  && toccoY>= (23*q[0][q[0].length-1].py)*height/360 && toccoY  <= (((23*q[0][q[0].length-1].py)*height/360) + 22.5f*height/360) && totale <= qx*qy-5) {
+      } else if (toccoX >= (pos*q[0][q[0].length-1].px)*width/640 && toccoX  <= (((pos*q[0][q[0].length-1].px)*width/640) + dim*width/640)  && toccoY>= (pos*q[0][q[0].length-1].py)*height/360 && toccoY  <= (((pos*q[0][q[0].length-1].py)*height/360) + dim*height/360) && totale <= qx*qy-5) {
         // q[0][q[0].length-1].colore = false;   
         q[0][q[0].length-1].posizione = false;
         q[0][q[0].length-1].active = false;
@@ -176,7 +176,7 @@ class Quadrato {
   public void perks(int swx, int swy) {//, int mnx, int mny) {
     if (totale >= (qx*qy)-(qy*4) && bot2.play == false && bot3.play == false && bot4.play == false && playopts == false) {
       if (q[swx][swy].colore == false)
-        image(SW, (23*q[swx][swy].px)*width/640, (23*q[swx][swy].py)*height/360, 22.5f*width/640, 22.5f*width/640);
+        image(SW, (pos*q[swx][swy].px)*width/640, (pos*q[swx][swy].py)*height/360, dim*width/640, dim*width/640);
       //if (q[mnx][mny].colore == false)
       //    image(MN, (23*q[mnx][mny].px)*width/640, (23*q[mnx][mny].py)*height/360, 22.5*width/640, 22.5*width/640);
     }

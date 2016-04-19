@@ -411,10 +411,10 @@ public void TurniGiocatori() { //Si passa il turno da un giocatore all'altro da 
             bot4.play = false;
           }
         }//Chiudo condizione senza sqalifiche
-        else if (g1.squalifica == true && bot2.squalifica == false && bot3.squalifica == false && bot4.squalifica == false){// && (BOT2 != bot2.punt || BOT3 != bot3.punt || BOT4 != bot4.punt)) { //G1 squalificato
+        else if (g1.squalifica == true && bot2.squalifica == false && bot3.squalifica == false && bot4.squalifica == false) {// && (BOT2 != bot2.punt || BOT3 != bot3.punt || BOT4 != bot4.punt)) { //G1 squalificato
           g1.play = false;
           if (bot2.play == true && bot3.play == false && bot4.play == false && BOT2 != bot2.punt && !pausa) { //Passa il turno al giocatore 3
-           // println("2");
+            // println("2");
             bot2.play = false;
             bot3.play = true;
             bot4.play = false;
@@ -495,7 +495,6 @@ public void TurniGiocatori() { //Si passa il turno da un giocatore all'altro da 
 
 
 public void gameover() { //Schermata di gameover che stampa il noyme del vincitore
-  //screenshot();
   background(130);
   if (Ngioc == 1 && Ncpu == 1) { //1v1 VS PC
     if (g1.punt < bot2.punt)
@@ -585,11 +584,29 @@ public void gameover() { //Schermata di gameover che stampa il noyme del vincito
   }
   punteggi();
   fill(240);
+  stroke(0);
+  rect(200*width/640, 135*height/360, 250*width/640, 80*height/360); //Bottone per il main menù
+  rect(0, 320*height/360, width, height); //Jarsick Games
+
+  textSize(18*height/360);
   if (victory != parola[8]+"!") {
-    text(parola[19]+"\n"+victory, 320*width/640, 120*height/360);
+    text(parola[19]+"\n"+victory, 320*width/640, 100*height/360);
   } else
-    text(victory, 320*width/640, 120*height/360);
-  rect(240*width/640, 200*height/360, 160*width/640, 30*height/360);
+    text(victory, 320*width/640, 100*height/360);
   fill(0);
-  text(parola[20], 320*width/640, 220*height/360);
+  text(parola[98], 320*width/640, 345*height/360); //https://play.google.com/store/search?q=pub%3AJarsick
+  text(parola[74]+"?", 320*width/640, 250*height/360); //Salva screen?
+  if (TSP == 0) //Resetto questa variabile quando cambio la lingua
+    for (int ix = 15; ix < 40; ix++) {
+      if ((parola[20].length()/2)*ix*height/360 >= 450) {
+        TSP = ix;
+        break;
+      }
+    }
+  textSize(TSP*height/360);
+ // println(TSP);
+  text(parola[20], 320*width/640, 180*height/360);
+  text(parola[71+int(!take)], 320*width/640, 290*height/360); //Si no
+  textSize(18*height/360);
 }
+int TSP = 0;

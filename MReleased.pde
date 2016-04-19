@@ -209,6 +209,7 @@ public void selectRL() {
   // 320*width/640, 180*height/360, 210*width/640, 160*height/360
   if (mouseX >= 215*width/640 && mouseX <= 425*width/640 && mouseY >= 130*height/360 && mouseY <= 290*height/360) {
     scene = "menu";
+    salvamelo();
     mouseY = mouseX = 0;
   }
 }
@@ -227,13 +228,13 @@ public void oRL() { //Modifica le opzioni durante la partita
   }
   if (mouseX >= 20*width/640 && mouseX <= 110*width/640 && mouseY >= 270*height/360 && mouseY <= 360*height/360 &&(!bot2.play && !bot3.play && !bot4.play )) {
     playopts =! playopts;
-    for(int i = 0; i < qx; i++)
-      for(int j = 0; j < qy; j++)
+    for (int i = 0; i < qx; i++)
+      for (int j = 0; j < qy; j++)
         q[i][j].posizione = false;
   }
   if (playopts == true) {
-    if(mouseX >= 270*width/640 && mouseX <= 360*width/640 && mouseY >= 250*height/360 && mouseY <= 300*height/360){
-       gameHelp = !gameHelp; 
+    if (mouseX >= 270*width/640 && mouseX <= 360*width/640 && mouseY >= 250*height/360 && mouseY <= 300*height/360) {
+      gameHelp = !gameHelp;
     }
     if (mouseX >= 540*width/640 && mouseY >= 70*height/360 && mouseY <= 200*height/360) {  
       if (pg < 1)
@@ -286,6 +287,7 @@ public void optRl() { //Men\u00f9 di opzioni
        language = "Espanol";
        else if (language.equals("Espanol"))*/
       language = "English";
+      TSP = 0; //Azzero la grandezza del testo della scritta "Torna al menù"
   }
 }
 

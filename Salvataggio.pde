@@ -51,28 +51,28 @@ public void creaFileVuoto() {
 }
 
 public void screenshot() {
-  screen = createGraphics(PApplet.parseInt(575*width/640), PApplet.parseInt(230*height/360), JAVA2D);
-  screen.beginDraw();
-  screen.textAlign(CENTER, CENTER);
-  screen.background(back);
-  if (totale >= (qx*qy)-1)
-    q[0][qy-1].colore = true;
-  for (a = 0; a < q.length; a++) {
-    for (b = 0; b < q[0].length; b++) {
-      if (q[a][b].player == 1)
-        screen.fill(g1.RGB);
-      else if (q[a][b].player == 2)
-        screen.fill(g2.RGB);
-      else if (q[a][b].player == 3)
-        screen.fill(g3.RGB);
-      else if (q[a][b].player == 4)
-        screen.fill(g4.RGB);
-      else if (!q[a][b].colore)
-        screen.fill(245);
-      screen.rect((23*a)*width/640, (23*b)*height/360, 22.5f*width/640, 22.5f*width/640);
+    screen = createGraphics(PApplet.parseInt(575*width/640), PApplet.parseInt(230*height/360), JAVA2D);
+    screen.beginDraw();
+    screen.textAlign(CENTER, CENTER);
+    screen.background(back);
+    if (totale >= (qx*qy)-1)
+      q[0][qy-1].colore = true;
+    for (a = 0; a < q.length; a++) {
+      for (b = 0; b < q[0].length; b++) {
+        if (q[a][b].player == 1)
+          screen.fill(g1.RGB);
+        else if (q[a][b].player == 2)
+          screen.fill(g2.RGB);
+        else if (q[a][b].player == 3)
+          screen.fill(g3.RGB);
+        else if (q[a][b].player == 4)
+          screen.fill(g4.RGB);
+        else if (!q[a][b].colore)
+          screen.fill(245);
+        screen.rect((23*a)*width/640, (23*b)*height/360, 22*width/640, 22*width/640);
+      }
     }
-  }
-  screen.endDraw();
+    screen.endDraw();
 }
 
 public void savePhoto() {
