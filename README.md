@@ -1,5 +1,7 @@
 # Raster
-This game is born as an experiment, it's the first game I ever made. <3
+This game is born as an experiment.
+Raster is a puzzle game based on a white grid, you can play with your friend, or alone with the CPU.
+Min 2 player, Max 4( ATM ), every player it has its own color.
 
 #Hacking
 All made using Processing 3.0
